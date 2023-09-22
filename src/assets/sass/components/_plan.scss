@@ -1,0 +1,61 @@
+@use "../abstract/" as *;
+
+.payment-summary {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: toRem(22);
+  margin-block: toRem(22) clamp(toRem(24), 5vw, toRem(32));
+  background-color: $clr-neutral-pale-blue;
+
+  &__icon {
+    width: toRem(48);
+    object-fit: contain;
+    margin-inline-end: 1.25rem;
+  }
+
+  &__plan {
+    margin-inline-start: auto;
+    margin-block: 0 0.125rem;
+    font-weight: 700;
+    color: $clr-neutral-dark-blue;
+  }
+
+  &__cost {
+    margin-inline-start: auto;
+    margin-block: 0;
+    font-weight: 500;
+    color: $clr-neutral-desaturated-blue;
+  }
+
+  &__change {
+    --bg-size: 0%;
+    --text-decoration-transition-delay: 0s;
+    margin-inline-start: auto;
+    font-weight: 700;
+    color: transparent;
+    background-image: radial-gradient(
+        circle,
+        $clr-neutral-lila 0%,
+        $clr-neutral-lila 10%,
+        $clr-primary-bright-blue 10%,
+        $clr-primary-bright-blue 100%
+      ),
+      linear-gradient($clr-primary-bright-blue, $clr-primary-bright-blue);
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: var(--bg-size), cover;
+    background-clip: text, text;
+    -webkit-background-clip: text, text;
+    transition: background-size 0.25s ease-in-out,
+      text-decoration-color 0.5s var(--text-decoration-transition-delay)
+        ease-out;
+
+    &:hover,
+    &:focus {
+      --bg-size: 1000%;
+      --text-decoration-transition-delay: 0.125s;
+      text-decoration-color: $clr-neutral-lila;
+    }
+  }
+}

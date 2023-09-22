@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  background-color: hsl(225, 100%, 94%);
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1rem;
+  background-image: url("../images/pattern-background-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (min-width: 64em) {
+  body {
+    background-image: url("../images/pattern-background-desktop.svg");
+  }
+}
+
+body,
+button {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.order-summary {
+  box-sizing: border-box;
+  margin-block-start: clamp(3rem, 6vw, 6.5625rem);
+  inline-size: min(28.125rem, 90%);
+  border-radius: 1rem;
+  padding-inline: clamp(1.5rem, 5vw, 3rem);
+  box-shadow: 0 1.5rem 3.5rem -2.5rem hsl(224, 23%, 55%);
+  padding-block-end: clamp(1rem, 3vw, 2rem);
+  background-color: hsl(225, 100%, 99.9%);
+  background-image: url("../images/illustration-hero.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.order-summary__title {
+  margin-block: clamp(12.25rem, 55vw, 16.75rem) 1.75rem;
+  font-size: 1.375rem;
+  font-weight: 900;
+  color: hsl(223, 47%, 23%);
+  text-align: center;
+}
+.order-summary__paragraph {
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;
+  color: hsl(224, 23%, 55%);
+}
+.order-summary--proceed, .order-summary--cancel {
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+}
+.order-summary--proceed:hover, .order-summary--proceed:focus, .order-summary--cancel:hover, .order-summary--cancel:focus {
+  --bg-size: 1000%;
+}
+.order-summary--proceed {
+  --bg-size: 0%;
+  inline-size: 100%;
+  padding-block: 1rem;
+  border-radius: 0.75rem;
+  background-color: hsl(245, 75%, 52%);
+  color: hsl(225, 100%, 99.9%);
+  box-shadow: 0 1.5rem 3rem -1rem hsl(245, 85%, 69%);
+  background-image: radial-gradient(circle, hsl(245, 85%, 69%) 0%, hsl(245, 85%, 69%) 10%, hsl(245, 75%, 52%) 10%, hsl(245, 75%, 52%) 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: var(--bg-size);
+  transition: background-size 0.25s ease-in;
+}
+.order-summary--cancel {
+  --bg-size: 0%;
+  display: block;
+  margin-block-start: clamp(1rem, 5vw, 2rem);
+  margin-inline: auto;
+  padding: 1rem;
+  background-color: inherit;
+  color: transparent;
+  background-image: radial-gradient(circle, hsl(223, 47%, 23%) 0%, hsl(223, 47%, 23%) 10%, hsl(224, 23%, 55%) 10%, hsl(224, 23%, 55%) 100%), linear-gradient(hsl(224, 23%, 55%), hsl(224, 23%, 55%));
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: var(--bg-size), cover;
+  background-clip: text, text;
+  -webkit-background-clip: text, text;
+  transition: background-size 0.25s ease-in;
+}
+
+.payment-summary {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 1.375rem;
+  margin-block: 1.375rem clamp(1.5rem, 5vw, 2rem);
+  background-color: hsl(225, 100%, 98%);
+}
+.payment-summary__icon {
+  width: 3rem;
+  object-fit: contain;
+  margin-inline-end: 1.25rem;
+}
+.payment-summary__plan {
+  margin-inline-start: auto;
+  margin-block: 0 0.125rem;
+  font-weight: 700;
+  color: hsl(223, 47%, 23%);
+}
+.payment-summary__cost {
+  margin-inline-start: auto;
+  margin-block: 0;
+  font-weight: 500;
+  color: hsl(224, 23%, 55%);
+}
+.payment-summary__change {
+  --bg-size: 0%;
+  --text-decoration-transition-delay: 0s;
+  margin-inline-start: auto;
+  font-weight: 700;
+  color: transparent;
+  background-image: radial-gradient(circle, hsl(245, 85%, 69%) 0%, hsl(245, 85%, 69%) 10%, hsl(245, 75%, 52%) 10%, hsl(245, 75%, 52%) 100%), linear-gradient(hsl(245, 75%, 52%), hsl(245, 75%, 52%));
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: var(--bg-size), cover;
+  background-clip: text, text;
+  -webkit-background-clip: text, text;
+  transition: background-size 0.25s ease-in-out, text-decoration-color 0.5s var(--text-decoration-transition-delay) ease-out;
+}
+.payment-summary__change:hover, .payment-summary__change:focus {
+  --bg-size: 1000%;
+  --text-decoration-transition-delay: 0.125s;
+  text-decoration-color: hsl(245, 85%, 69%);
+}

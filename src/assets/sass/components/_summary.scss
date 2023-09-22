@@ -1,0 +1,90 @@
+@use "../abstract/" as *;
+
+.order-summary {
+  box-sizing: border-box;
+  margin-block-start: clamp(toRem(48), 6vw, toRem(105));
+  inline-size: min(toRem(450), 90%);
+  border-radius: 1rem;
+  padding-inline: clamp(toRem(24), 5vw, toRem(48));
+  box-shadow: 0 1.5rem 3.5rem -2.5rem $clr-neutral-desaturated-blue;
+  padding-block-end: clamp(1rem, 3vw, 2rem);
+  background-color: $clr-primary-white;
+  background-image: url("../images/illustration-hero.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  &__title {
+    margin-block: clamp(toRem(196), 55vw, toRem(268)) toRem(28);
+    font-size: $fs-500;
+    font-weight: 900;
+    color: $clr-neutral-dark-blue;
+    text-align: center;
+  }
+
+  &__paragraph {
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $clr-neutral-desaturated-blue;
+  }
+
+  &--proceed,
+  &--cancel {
+    border: none;
+    cursor: pointer;
+    font-weight: 900;
+
+    &:hover,
+    &:focus {
+      --bg-size: 1000%;
+    }
+  }
+
+  &--proceed {
+    --bg-size: 0%;
+    inline-size: 100%;
+    padding-block: 1rem;
+    border-radius: 0.75rem;
+    background-color: $clr-primary-bright-blue;
+    color: $clr-primary-white;
+    box-shadow: 0 1.5rem 3rem -1rem $clr-neutral-lila;
+    background-image: radial-gradient(
+      circle,
+      $clr-neutral-lila 0%,
+      $clr-neutral-lila 10%,
+      $clr-primary-bright-blue 10%,
+      $clr-primary-bright-blue 100%
+    );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: var(--bg-size);
+    transition: background-size 0.25s ease-in;
+  }
+
+  &--cancel {
+    --bg-size: 0%;
+    display: block;
+    margin-block-start: clamp(1rem, 5vw, 2rem);
+    margin-inline: auto;
+    padding: 1rem;
+    background-color: inherit;
+    color: transparent;
+    background-image: radial-gradient(
+        circle,
+        $clr-neutral-dark-blue 0%,
+        $clr-neutral-dark-blue 10%,
+        $clr-neutral-desaturated-blue 10%,
+        $clr-neutral-desaturated-blue 100%
+      ),
+      linear-gradient(
+        $clr-neutral-desaturated-blue,
+        $clr-neutral-desaturated-blue
+      );
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: var(--bg-size), cover;
+    background-clip: text, text;
+    -webkit-background-clip: text, text;
+    transition: background-size 0.25s ease-in;
+  }
+}
